@@ -1,0 +1,49 @@
+body,
+html {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: lightblue;
+
+}
+
+.form-box {
+    display: flex;
+    width: 700px;
+    flex-direction: column;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid red;
+    box-sizing: border-box;
+}
+
+.txt-area {
+    display: flex;
+    width: 680px;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+/* Cambiamento dello sfondo della navbar */
+.navbar {
+    background-color: #744848;
+    /* Cambia il colore di sfondo come preferisci */
+}
+
+/* Cambiamento del colore del testo nella navbar */
+.navbar .nav-item.nav-link {
+    color: white;
+    /* Cambia il colore del testo come preferisci */
+}
+
+/* Nascondi la scrollbar in Firefox, Edge e Brave */
+body .navbar {
+    scrollbar-width: none;
+    /* Per Firefox */
+    -ms-overflow-style: none;
+    /* Per Edge e IE */
+}
+
+body .navbar::-webkit-scrollbar {
+    display: none;
+    /* Per Chrome, Safari e altri browser basati su WebKit */
+}

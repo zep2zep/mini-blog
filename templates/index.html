@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Task Master</title>
+{% endblock %}
+
+{% block body %}
+
+
+<h1 style="text-align: center">Task Master</h1>
+{% if tasks|length < 1 %} <h4 style="text-align: center">There are no tasks. Create one below!</h4>
+    {% else %}
+    <div class="mt-5" style="text-align: center">
+        <table style="width: 80%; margin: 0 auto;">
+            <thead>
+                <tr>
+                    <th style="width: 60%; text-align: left;">Title</th>
+                    <th style="width: 20%; text-align: left;">Date</th>
+                    <th style="width: 10%; text-align: left;">Actions</th>
+                    <th style="width: 10%; text-align: left;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+                <tr>
+                    <td class="text-truncate" style="max-width: 120px; text-align: left;">{{ task.title }}</td>
+                    <td style="text-align: left;">{{ task.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                    <td style="text-align: left;">
+                        <a class="btn btn-sm btn-success ms-2 me-2" href="/update/{{ task.id }}">Update</a>
+                    </td>
+                    <td style="text-align: left;">
+                        <a class="btn btn-sm btn-danger ms-2" href="/delete/{{ task.id }}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% endif %}
+
+
+    <div class="form-box mt-5 mx-auto" style="width: 700px;">
+        <h3>Insert Post</h3>
+        <form action="/" method="POST">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title:</label>
+                <br>
+                <input type="text" id="title" name="title" maxlength="120" style="width: 40em;">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Colorful border</label>
+                <br>
+                <textarea name="content" id="content" rows="5" class="txt-area"></textarea>
+            </div>
+            <hr>
+            <input type="submit" value="Add Task" class="btn btn-primary">
+        </form>
+    </div>
+
+
+
+
+    {% endblock %}
