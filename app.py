@@ -26,6 +26,11 @@ def home():
     return redirect("/")
 
 
+@app.route("/addpost")
+def addpost():
+    return render_template("addpost.html")
+
+
 @app.route("/about")
 def about():
     return render_template("about.html")

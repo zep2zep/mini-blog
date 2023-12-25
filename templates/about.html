@@ -3,14 +3,112 @@
 {% block head %}
 <title>About</title>
 {% endblock %}
+<style>
+    /* Stili per i tag <code> */
+    code {
+        font-size: 1.15em;
+        /* Aumenta la dimensione del testo del 25% */
+        color: #283593;
+        /* Colore blu scuro */
+        /* Altri stili a tua scelta */
+    }
 
+    p {
+        color: #333;
+        margin-bottom: 5px;
+        font-weight: 500;
+        font-size: 1.1em;
+    }
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        max-width: 1200px;
+        /* Aggiungi altri stili specifici per il container se necessario */
+    }
+</style>
 {% block body %}
+<style>
+    /* Stili per i tag <code> */
+    code {
+        font-size: 1.25em;
+        /* Aumenta la dimensione del testo del 25% */
+        color: #283593;
+        /* Colore blu scuro */
+        /* Altri stili a tua scelta */
+    }
+
+    p {
+        color: #0c0c0c;
+        margin-bottom: 5px;
+        font-weight: 500;
+        font-size: 1.1em;
+    }
+
+    .container {
+        width: 70%;
+        margin: 0 auto;
+        max-width: 1200px;
+        /* Aggiungi altri stili specifici per il container se necessario */
+    }
+</style>
 <!-- Contenuto della pagina About -->
-<div class="container mt-4">
-    <h1>About Flask Blog</h1>
-    <p>Questa è la pagina About del nostro Flask Blog. Qui puoi inserire informazioni dettagliate sul tuo progetto,
-        sulla sua storia, sui suoi creatori o su qualsiasi altra cosa desideri condividere.</p>
-    <p>Modifica questo contenuto come preferisci per adattarlo alle informazioni che desideri mostrare sulla pagina
-        About del tuo blog.</p>
+<div class="container">
+    <h2 style="max-width: 300px; text-align:center;" class="bg-body-secondary text-primary 
+    border-danger border rounded-3 border-3  mx-auto mt-5">
+        &#129488 About &#129488
+    </h2>
+    <p> [mini-blog] è un'applicazione Flask basata su un tutorial disponibile su YouTube. Il tutorial si trova al
+        seguente link: <a href="https://www.youtube.com/watch?v=Z1RJmh_OqeA&t=27s">YouTube Tutorial</a>. Inoltre, il
+        sorgente originale è disponibile su GitHub all'indirizzo: <a
+            href="https://github.com/jakerieger/FlaskIntroduction">GitHub - FlaskIntroduction</a>.</p>
+
+    <!-- Aggiunta delle modifiche apportate a app.py -->
+    <p>Ho modificato il file app.py con le seguenti modifiche:</p>
+    <ul>
+        <li>Aggiunta di <code>app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False</code></li>
+        <li>
+            Quando è impostato su False, SQLAlchemy smette di tenere traccia automaticamente delle modifiche alle
+            istanze degli oggetti, riducendo così il carico sulle risorse del sistema e migliorando le prestazioni
+            dell'applicazione.
+        </li>
+        <li>Definizione della classe <code>Todo</code> con il campo <code>title</code> e agginto colonna nel db nel
+            modello</li>
+        <li>Aggiunta di nuove route:</li>
+        <ul>
+            <li><code>@app.route("/home")</code> - Reindirizzamento alla home</li>
+            <li><code>@app.route("/about")</code> - Pagina "About"</li>
+            <li><code>@app.route("/", methods=["POST", "GET"])</code> - Gestione dei task e dei nuovi contenuti</li>
+            <li><code>@app.route("/update/&lt;int:id&gt;", methods=["GET", "POST"])</code> - Aggiornamento dei task</li>
+        </ul>
+    </ul>
+    <p>Inoltre, sono stati apportati miglioramenti al codice HTML e sono state aggiunte modifiche al file main.css per
+        migliorare lo stile dell'applicazione.</p>
+    <p>All'interno di un documento HTML,
+        gli stili definiti direttamente all'interno del tag &lt;style&gt; nell'intestazione hanno una priorità maggiore
+        rispetto agli stili definiti in un file CSS separato, come ad esempio main.css.
+        Questo concetto si basa sulla specificità dei selettori CSS e sull'ordine di applicazione delle regole di stile.
+        Gli stili inline, definiti direttamente negli attributi degli elementi HTML (ad esempio, &lt;p style="color:
+        red;"&gt;Testo rosso&lt;/p&gt;), hanno la massima priorità e sovrascrivono qualsiasi altra regola CSS.
+        In caso di conflitto tra stili,
+        la regola CSS con maggiore specificità viene applicata.
+        Ad esempio, uno stile definito per un ID (#myElement) avrà più peso rispetto a uno stile definito per una classe
+        (.myClass) o per un elemento specifico (p).
+        Inoltre, l'ultima regola dichiarata viene applicata nel caso in cui più regole CSS abbiano la stessa
+        specificità.
+    </p>
+
+    <!-- Informazioni precedenti -->
+    <p>Puoi trovare il mio codice su GitHub: <a href="https://github.com/zep2zep/mini-blog">GitHub - mini-blog</a>. Ho
+        utilizzato questo repository per fare il deploy dell'applicazione su PythonAnywhere.</p>
+    <p>Sto preparando un articolo dettagliato sull'esperienza di deploy su PythonAnywhere per condividere ulteriori
+        dettagli sull'applicazione e sulla procedura di deploy. Resta sintonizzato per il prossimo articolo!</p>
+    <br>
+    <br>
+    <br>
+    <p>
+        Version 0.0.1
+    </p>
 </div>
+
 {% endblock %}
